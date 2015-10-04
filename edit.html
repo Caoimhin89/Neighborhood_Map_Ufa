@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css"></link>
+    <title>City Map of Ufa, Russia</title>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete"
+      async defer>
+    </script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
+    <script type="text/javascript" src="edit.js"></script>
+  </head>
+
+  <body>
+
+    <div id="list">
+      <form id="choosePoint">
+        <select data-bind="options: $root.points, value: $root.point, optionsText: 'name'"></select>
+        <input type="button" value="Submit" data-bind="click: addPoint"/>
+      </form>
+
+      <table border="1" id="listTable">
+        <tbody data-bind="foreach: listPoints">
+          <tr>
+            <td data-bind="text: point.name"></td>
+            <td>
+              <a href="#" data-bind="click: $root.removePoint">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div id="map"></div>
+  </body>
+</html>
