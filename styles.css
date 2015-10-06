@@ -4,91 +4,65 @@ html, body {
         padding: 0;
         display: inline;
 }
+
 tr {
   text-align: center;
 }
+
 td {
   border-width: 2px solid black;
   background-color: silver;
 }
+
 #search {
   height: 15%;
   width: 25%;
-  background-color: blue;
+  background-color: red;
   position: absolute;
   margin: 0;
 }
-#target {
-        width: 345px;
+
+#header {
+  height: 15%;
+  width: 100%;
+  text-align: center;
+  float: right;
+  background-color: darkgrey;
 }
+
+h4 {
+  margin-bottom: 0em;
+  margin-top: 0em;
+}
+
+p {
+  font-size: .85em;
+  margin-top: .5em;
+}
+
 #map {
-        height: 100%;
-        width: 75%;
-        float: right;
-        margin: 0 0 0 0;
+  height: 85%;
+  width: 75%;
+  float: right;
+  margin: 0 0 0 0;
 }
+
 #list {
-        height: 85%;
-        width: 25%;
-        background-color: red;
-        position: absolute;
-        margin: 0 0 0 0;
-        bottom: 0;
-        padding: 0;
+  height: 85%;
+  width: 25%;
+  background-color: red;
+  position: absolute;
+  margin: 0 0 0 0;
+  bottom: 0;
+  padding: 0;
 }
+
 #listTable {
   height: 100%;
   width: 100%;
   margin: 0;
 }
-.button {
-        float: right;
-}
+
 #searchbar {
   size: 90%;
-}
-#searchBtn {
-  size: 5%;
-}
-
-.controls {
-  margin-top: 10px;
-  border: 1px solid transparent;
-  border-radius: 2px 0 0 2px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  height: 32px;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
-}
-
-#pac-input {
-  background-color: #fff;
-  font-family: Roboto;
-  font-size: 15px;
-  font-weight: 300;
-  margin-left: 12px;
-  padding: 0 11px 0 13px;
-  text-overflow: ellipsis;
-  width: 300px;
-}
-
-#pac-input:focus {
-  border-color: #4d90fe;
-}
-
-.pac-container {
-  font-family: Roboto;
-}
-
-#type-selector {
-  color: #fff;
-  background-color: #4d90fe;
-  padding: 5px 11px 0px 11px;
-}
-
-#type-selector label {
-  font-family: Roboto;
-  font-size: 13px;
-  font-weight: 300;
 }

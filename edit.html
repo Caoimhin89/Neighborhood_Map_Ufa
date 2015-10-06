@@ -14,21 +14,25 @@
   </head>
 
   <body>
-
+    <div id="header">
+      <h4>City of Ufa</h4>
+      <p>Ufa is the administrative capital of the Republic of Bashkortostan, which is one of 86 political subdivisions of the Russian Federation. It is located on the western side of the southern Ural Mountains, putting the city right on the border of geographical Europe and Asia. The city has a diverse population of 1.5 million inhabitants, about a third of whom are ethnically Russian, another third of whom are ethnically Bashkir, and another third of whom are ethnically Tatar. The city is approximately one third Orthodox Christian and two thirds Islamic (Sunni). There are two official languages in the Republic of Bashkortostan, Russian and Bashkir, although Tatar is commonly spoken in Ufa and in the northern part of the republic.
+      </p>
+    </div>
     <div id="list">
-      <form id="choosePoint">
-        <select data-bind="options: $root.points, value: $root.point, optionsText: 'name'"></select>
-        <input type="button" value="Submit" data-bind="click: addPoint"/>
-      </form>
-
-      <table border="1" id="listTable">
-        <tbody data-bind="foreach: listPoints">
-          <tr>
-            <td data-bind="text: point.name"></td>
-            <td>
-              <a href="#" data-bind="click: $root.removePoint">Delete</a>
-            </td>
-          </tr>
+      <input data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" type="text" placeholder="Filter">
+<!--        <ul data-bind="foreach: filterPins">
+          <li>
+            <a data-bind="text: name"></a>
+          </li>
+        </ul>
+-->   <table border="1" id="listTable">
+        <tbody data-bind="foreach: filterPoints">
+            <tr>
+                <td>
+                  <a href="#" data-bind="text: name"></a>
+                </td>
+              </tr>
         </tbody>
       </table>
     </div>
