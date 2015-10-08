@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <title>City Map of Ufa, Russia</title>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete"
+      async defer>
+    </script>
+    <script type="text/javascript" src="http://ajax.aspnetcdn.com/ajax/knockout/knockout-3.1.0.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+
+    <!-- BEGIN HEADER -->
+
+      <div class="row" id="header">
+        <div class="col-md-3" id="flag">
+          <img src="img/flag.jpg"></img>
+        </div><!--End Flag-->
+        <div class="col-md-6" id="banner">
+          <img src="img/banner.jpg"></img>
+        </div>
+        <div class="col-md-3" id="citySeal">
+          <img src="img/cot-ufa.jpg"></img>
+        </div>
+      </div><!--End Header Row-->
+
+    <!-- BEGIN MAIN CONTENT -->
+
+      <div class="row" id="main-content">
+        <div class="col-md-3" id="list">
+          <input id="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" type="text" placeholder="Filter">
+          <table border="1" id="listTable">
+            <tbody data-bind="foreach: filterPoints">
+              <tr>
+                <td>
+                  <a href="#openModal" data-bind="text: name"></a>
+                  <div id="openModal" id="list-item" class="modalDialog">
+                    <div>
+                      <a href="#close" title="Close" class="close">X</a>
+                        <h2 data-bind="text: name"></h2>
+                        <p data-bind="text: text"></p>
+                        <img data-bind="attr:{src: img}"></img>
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!--End List-->
+        <div class="col-md-9" id="map"></div>
+      </div><!--End Main-Content Row-->
+      <div class="row" id="footer">
+        <div class="col-md-3" id="coa">
+          <img src="img/seal-ufa.jpg"></img>
+        </div>
+        <div class="col-md-6" id="text">
+          <p>Ufa is the capital of Russia's Bashkortostan Republic. Located in the southern Urals, it is right on the border of Europe and Asia. The city has a population of 1.5 million, divided roughly equally between ethnic Russians, Bashkirs, and Tatars with Orthodox Christianity and Sunni Islam being the two major religions. Russian and Bashkir are the two official languages, although Tatar is also commonly spoken. Bashkortostan is well known for its agriculture, abundant minerals, booming energy sector, and its many famous writers and mathematicians. Ufa was recently the host city for the 2015 BRICS summit.
+          </p>
+        </div><!--End Text-->
+        <div class="col-md-3" id="bash-coat">
+          <img src="img/coat-bash.jpg"></img>
+        </div>
+      </div><!--End Row Footer-->
+
+    <!-- BEGIN MODALS -->
+  
+    </div><!--End Container-->
+  </body>
+</html>
