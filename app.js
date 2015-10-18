@@ -1,10 +1,12 @@
+//initialize the google map, center it on the city of Ufa, set zoom
 function initAutocomplete() {
     var ufa = {lat: 54.771073, lng: 56.027924};
     var map = new google.maps.Map(document.getElementById('map'), {
       center: ufa,
       zoom: 11
-    }); 
+    });
 
+//Set up point object to receive all info about map locations
     function point(map, name, lat, long, text, img) {
       var marker;
 
@@ -14,10 +16,14 @@ function initAutocomplete() {
       this.text = ko.observable(text);
       this.img = ko.observable(img);
 
+//Define how information will be displayed in infowindows
+
       var infowindow = new google.maps.InfoWindow({
         position: new google.maps.LatLng(lat, long),
         content: "<strong>" + name + "</strong>" + "<br>" + text + "<br>" + img
       });
+
+//create markers to display points on map
 
       marker = new google.maps.Marker({
         position: new google.maps.LatLng(lat, long),
@@ -26,6 +32,8 @@ function initAutocomplete() {
         draggable: true,
         animation: google.maps.Animation.DROP
       });
+
+//set initial visibility so that users can change visibility of markers by using a filter function that will be defined later
 
       this.isVisible = ko.observable(false);
       this.isVisible.subscribe(function(currentState) {
@@ -38,12 +46,15 @@ function initAutocomplete() {
 
       this.isVisible(true);
 
+//display infowindows when user clicks the map marker
+
       marker.addListener('click', function() {
         infowindow.open(map, marker);
         console.log(marker.title);
       });
     }
 
+//instantiate new point objects inside an array
     var viewModel = function() {
       var self = this;
       self.points = ko.observableArray([
@@ -66,6 +77,8 @@ function initAutocomplete() {
 
       self.query = ko.observable("");
 
+//create filter function so user can narrow the number of points in the list and on the map
+
       self.filterPoints = ko.computed(function() {
         var search = self.query().toLowerCase();
         return ko.utils.arrayFilter(self.points(), function(point) {
@@ -75,10 +88,14 @@ function initAutocomplete() {
         });
       });
 
+//create Google Maps infowindows for each point on the map
+
       self.openInfoWindow = function(point) {
         self.infowindow.open(map, marker);
         console.log(marker.title);
       };
+
+//create function to enable users to remove individual points from the list      
       self.removePoint = function(point) {
         self.listPoints.remove(point);
         self.markerPoints.remove(point);
