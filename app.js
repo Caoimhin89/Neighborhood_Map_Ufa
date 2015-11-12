@@ -91,7 +91,7 @@ function initAutocomplete() {
 //create Google Maps infowindows for each point on the map
 
       self.openInfoWindow = function(point) {
-        self.infowindow.open(map, marker);
+        self.infowindow.open(map, point.marker);
         console.log(marker.title);
       };
 
