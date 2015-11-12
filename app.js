@@ -92,7 +92,7 @@ function initAutocomplete() {
 
       self.openInfoWindow = function(point) {
         self.infowindow.open(map, point.marker);
-        console.log(marker.title);
+        console.log(point);
       };
 
 //create function to enable users to remove individual points from the list      
