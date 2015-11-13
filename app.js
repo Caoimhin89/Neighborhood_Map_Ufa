@@ -57,6 +57,7 @@ function initAutocomplete() {
 //instantiate new point objects inside an array
     var viewModel = function() {
       var self = this;
+
       self.points = ko.observableArray([
         new point(map, 'Aviation University', 54.725494, 55.941314, "This is the aviation university.", "<img src='img/aviation.jpg'</img>"),
         new point(map, 'Guest Yard', 54.724807, 55.944055, "This is the guest yard", "<img src='img/guest.jpg'</img>"),
@@ -91,7 +92,7 @@ function initAutocomplete() {
 //create Google Maps infowindows for each point on the map
 
       self.openInfoWindow = function(point) {
-        self.infowindow.open(map, point.marker);
+        infowindow.open(map, point.marker);
         console.log(point);
       };
 
