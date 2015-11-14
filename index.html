@@ -37,10 +37,10 @@
         <div class="col-md-3" id="list">
           <input id="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" type="text" placeholder="Filter">
           <table border="1" id="listTable">
-            <tbody data-bind="foreach: {data: filterPoints, as: 'point'}">
+            <tbody data-bind="foreach: filterPoints">
               <tr>
                 <td>
-                  <a href="#" data-bind="text: name, click: $parent.openInfoWindow(point)"></a>
+                  <a href="#" data-bind="text: name, click: $parent.openInfoWindow"></a>
                 </td>
               </tr>
             </tbody>
