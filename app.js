@@ -91,21 +91,11 @@ function initAutocomplete() {
 
 //create Google Maps infowindows for each point on the map
 
-      self.openInfoWindow = function() {
+      self.openInfoWindow = function(point) {
         self.point.infowindow.open(map, point.marker);
         console.log(point);
       };
 
-//create function to enable users to remove individual points from the list      
-      self.removePoint = function(point) {
-        self.listPoints.remove(point);
-        self.markerPoints.remove(point);
-      }
-      self.addPoint = function(point) {
-        self.listPoints.push(point);
-        self.markerPoints.push(point);
-        console.log(listPoints);
-      }
     };
 
     ko.applyBindings(new viewModel());
