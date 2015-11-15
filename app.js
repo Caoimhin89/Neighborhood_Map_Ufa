@@ -23,6 +23,10 @@ function initAutocomplete() {
         content: "<strong>" + name + "</strong>" + "<br>" + text + "<br>" + img
       });
 
+      var info = new google.maps.InfoWindow({
+        position: new google.maps.LatLng(lat, long),
+        content: "<strong>" + name + "</strong>" + "<br>" + text + "<br>" + img
+      });
 //create markers to display points on map
 
       marker = new google.maps.Marker({
@@ -49,7 +53,7 @@ function initAutocomplete() {
 //display infowindows when user clicks the map marker
 
       marker.addListener('click', function() {
-        infowindow.open(map, marker);
+        info.open(map, marker);
         console.log(marker.title);
       });
     }
