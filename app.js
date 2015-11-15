@@ -18,7 +18,7 @@ function initAutocomplete() {
 
 //Define how information will be displayed in infowindows
 
-      var infowindow = new google.maps.InfoWindow({
+      this.infowindow = new google.maps.InfoWindow({
         position: new google.maps.LatLng(lat, long),
         content: "<strong>" + name + "</strong>" + "<br>" + text + "<br>" + img
       });
@@ -92,7 +92,7 @@ function initAutocomplete() {
 //create Google Maps infowindows for each point on the map
 
       self.openInfoWindow = function(point) {
-        self.point.infowindow.open(map, point.marker);
+        point.infowindow.open(map, point.marker);
         console.log(point);
       };
 
