@@ -88,7 +88,7 @@ function initAutocomplete() {
         }
       }
     }
-
+}
 //instantiate new point objects inside an array
     var viewModel = function() {
       var self = this;
@@ -132,6 +132,6 @@ function initAutocomplete() {
       };
 
     };
-
+    
     ko.applyBindings(new viewModel());
 }
