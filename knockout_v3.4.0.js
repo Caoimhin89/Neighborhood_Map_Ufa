@@ -1,7 +1,7 @@
-//*!
- * Knockout JavaScript library v3.4.0
- * (c) Steven Sanderson - http://knockoutjs.com/
- * License: MIT (http://www.opensource.org/licenses/mit-license.php)
+/*!
+ Knockout JavaScript library v3.4.0
+ (c) Steven Sanderson - http://knockoutjs.com/
+ License: MIT (http://www.opensource.org/licenses/mit-license.php)
  */
 
 (function() {(function(n){var x=this||(0,eval)("this"),u=x.document,M=x.navigator,v=x.jQuery,F=x.JSON;(function(n){"function"===typeof define&&define.amd?define(["exports","require"],n):"object"===typeof exports&&"object"===typeof module?n(module.exports||exports):n(x.ko={})})(function(N,O){function J(a,c){return null===a||typeof a in T?a===c:!1}function U(b,c){var d;return function(){d||(d=a.a.setTimeout(function(){d=n;b()},c))}}function V(b,c){var d;return function(){clearTimeout(d);d=a.a.setTimeout(b,c)}}function W(a,
