@@ -37,7 +37,7 @@ html, body {
    #map {
     height: 100%;
     width: 65%;
-    margin: 0, 0, 0, 2px;
+    margin: 0, 0, 0, 5px;
     padding: 0;
     display: inline-block;
   }
