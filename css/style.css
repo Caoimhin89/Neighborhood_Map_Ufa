@@ -10,11 +10,8 @@ html, body {
 }
 
 @media only screen and (max-width: 500px) {
-    #header {
-    top: 0;
-    height: 15%;
-    width: 100%;
-    background-color: darkgrey;
+  #header {
+  display: none;
   }
   #citySeal {
     display: none;
