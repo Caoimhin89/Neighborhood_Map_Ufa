@@ -77,14 +77,14 @@ tr {
   text-align: center;
   width: 100%;
 }
+tr:hover {
+    background-color: #0099cc;
+}
 
 td {
   border-width: 2px solid black;
   background-color: silver;
   width: 100%;
-}
-li:hover {
-    background-color: #0099cc;
 }
 #footer {
   bottom: 0;
