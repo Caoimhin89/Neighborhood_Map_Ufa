@@ -39,13 +39,15 @@ html, body {
     width: 80%;
     margin: 0;
     padding: 0;
-    display: inline-block;
+    float: left;
+    display: inline;
   }
 
   #list {
     height: 100%;
     width: 20%;
-    display: inline-block;
+    float: left;
+    display: inline;
     margin: 0;
     bottom: 0;
     padding: 0;
