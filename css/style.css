@@ -10,6 +10,10 @@ html, body {
 }
 
 @media only screen and (max-width: 500px) {
+  .row {
+    margin: 0;
+    width: 100%;
+  }
   #header {
   display: none;
   }
@@ -19,19 +23,8 @@ html, body {
   #banner {
     display: none;
   }
-  .row {
-    margin: 0;
-    width: 100%;
-  }
   #flag{
-    width: 140px;
-    height: 70px;
-    margin: 0;
-    padding: 0;
-  }
-  #flag img {
-    height: 100%;
-    width: 100%;
+    display: none;
   }
   #main-content{
     width: 100%;
@@ -43,7 +36,7 @@ html, body {
 
    #map {
     height: 100%;
-    width: 85%;
+    width: 80%;
     margin: 0;
     padding: 0;
     display: inline-block;
@@ -84,9 +77,6 @@ html, body {
   #coa {
     display: none;
   }
-  #coa img {
-    display: none;
-  }
   #text {
     background-color: darkgrey;
     width: 70%;
@@ -109,9 +99,6 @@ html, body {
     text-indent: 2em;
   }
   #bash-coat {
-    display: none;
-  }
-  #bash-coat img {
     display: none;
   }
 }
