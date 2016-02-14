@@ -75,6 +75,9 @@ html, body {
   #coa {
     display: none;
   }
+  #coa img {
+    display: none;
+  }
   #text {
     background-color: darkgrey;
     width: 70%;
@@ -97,6 +100,9 @@ html, body {
     text-indent: 2em;
   }
   #bash-coat {
+    display: none;
+  }
+  #bash-coat img {
     display: none;
   }
 }
