@@ -36,7 +36,8 @@ html, body {
 
    #map {
     height: 90%;
-    width: 60%;
+    position: fixed;
+    width: 80%;
     margin: 0, 0, 0, 5px;
     padding: 0;
     display: inline-block;
