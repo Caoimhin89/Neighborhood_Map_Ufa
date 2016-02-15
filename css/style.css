@@ -99,7 +99,7 @@ html, body {
   }
   #header {
     top: 0;
-    height: 15%;
+    height: 30%;
     width: 100%;
     background-color: darkgrey;
   }
@@ -116,7 +116,7 @@ html, body {
     display: inline-block;
   }
   #flag {
-    width: 30%;
+    width: 15%;
     height: 100%;
     margin: 0;
     padding: 0;
