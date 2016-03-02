@@ -35,13 +35,14 @@
     <!-- BEGIN MAIN CONTENT -->
 
       <div class="row" id="main-content">
+      <input id="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" type="text" placeholder="Filter">
         <div class="col-sm-3" id="list">
-          <input id="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" type="text" placeholder="Filter">
+          
           <table border="1" id="listTable">
             <tbody data-bind="foreach: {data: filterPoints, as: 'point'}">
               <tr>
                 <td>
-                  <a href="#" data-bind="text: name, click: $parent.openInfoWindow"></a>
+                  <a href="#"><b data-bind="text: name, click: $parent.openInfoWindow"></b></a>
                 </td>
               </tr>
             </tbody>
