@@ -5,6 +5,7 @@ function initAutocomplete() {
       center: ufa,
       zoom: 11
     });
+      
 
     var siteInfo = {
       aviationUni:"This is the Aviation University. It was founded in 1932 and is now one of the leading universities in Russia.",
@@ -25,7 +26,7 @@ function initAutocomplete() {
     };
 
 //Set up point object to receive all info about map locations
-    function point(map, name, lat, long, text, img) {
+    function point(map, name, lat, long, text, img, markerType) {
       var marker;
 
       this.name = ko.observable(name);
@@ -33,6 +34,7 @@ function initAutocomplete() {
       this.long = ko.observable(long);
       this.text = ko.observable(text);
       this.img = ko.observable(img);
+      this.markerType = ko.observable(markerType);
 
 //Define how information will be displayed in infowindows
 
@@ -46,14 +48,24 @@ function initAutocomplete() {
         content: "<strong>" + name + "</strong>" + "<br>" + text + "<br>" + img
       });
 //create markers to display points on map
-
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(lat, long),
-        title: name,
-        map: map,
-        draggable: true,
-        animation: google.maps.Animation.DROP
-      });
+      if(markerType === "hotel") {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(lat, long),
+          icon: "img/hotel-icon.png",
+          title: name,
+          map: map,
+          draggable: true,
+          animation: google.maps.Animation.DROP
+        });
+      } else {
+        marker = new google.maps.Marker({
+          position: new google.maps.LatLng(lat, long),
+          title: name,
+          map: map,
+          draggable: true,
+          animation: google.maps.Animation.DROP
+        });
+      }
 
 //set initial visibility so that users can change visibility of markers by using a filter function that will be defined later
 
@@ -94,22 +106,33 @@ function initAutocomplete() {
       var self = this;
 
       self.points = ko.observableArray([
-        new point(map, 'Aviation University', 54.725494, 55.941314, siteInfo.aviationUni, "<img src='img/aviation.jpg'</img>"),
-        new point(map, 'Guest Yard', 54.724807, 55.944055, siteInfo.guestYard, "<img src='img/guest.jpg'</img>"),
-        new point(map, 'Kashkadan Park', 54.773513, 56.060225, siteInfo.kashPark, "<img src='img/kashkadan.jpg'</img>"),
-        new point(map, 'Yakutova Park', 54.741144, 55.951269, siteInfo.yakPark, "<img src='img/yakutova.jpg'</img>"),
-        new point(map, 'Lala Tulpan Mosque', 54.819552, 56.05573, siteInfo.lala, "<img src='img/lala.jpg'</img>"),
-        new point(map, 'City Council', 54.770293, 56.020652, siteInfo.cityCouncil, "<img src='img/gorsoviet.jpg'</img>"),
-        new point(map, 'Bashkir Drama Theater', 54.718773, 55.940926, siteInfo.bashTheater, "<img src='img/bash-drama.jpg'</img>"),
-        new point(map, 'Salavat Ulayev Park', 54.716619, 55.92667, siteInfo.salavat, "<img src='img/salavat-ulayev.jpg'</img>"),
-        new point(map, 'Tatar Drama Theater', 54.748657, 56.019359, siteInfo.tatTheater, "<img src='img/tatar-theater.jpg'</img>"),
-        new point(map, 'Victory Park', 54.81438, 56.057187, siteInfo.victory, "<img src='img/victory.jpg'</img>"),
-        new point(map, 'Congress Hall', 54.721032, 55.928579, siteInfo.congress, "<img src='img/congress.jpg'</img>"),
-        new point(map, 'White House', 54.716501, 55.940882, siteInfo.whiteHouse, "<img src='img/white-house.jpg'</img>"),
-        new point(map, 'Friendship Monument', 54.712937, 55.963894, siteInfo.friendship, "<img src='img/friendship.jpg'</img>"),
-        new point(map, 'Bashkir State University', 54.720188, 55.93605, siteInfo.bgu, "<img src='img/bgu.jpg'</img>"),
-        new point(map, 'Ballet & Opera Theater', 54.722521, 55.944974, siteInfo.ballet, "<img src='img/ballet-theater.jpg'</img>")
+        new point(map, 'Aviation University', 54.725494, 55.941314, siteInfo.aviationUni, "<img src='img/aviation.jpg'</img>", "poi"),
+        new point(map, 'Guest Yard', 54.724807, 55.944055, siteInfo.guestYard, "<img src='img/guest.jpg'</img>", "poi"),
+        new point(map, 'Kashkadan Park', 54.773513, 56.060225, siteInfo.kashPark, "<img src='img/kashkadan.jpg'</img>", "poi"),
+        new point(map, 'Yakutova Park', 54.741144, 55.951269, siteInfo.yakPark, "<img src='img/yakutova.jpg'</img>", "poi"),
+        new point(map, 'Lala Tulpan Mosque', 54.819552, 56.05573, siteInfo.lala, "<img src='img/lala.jpg'</img>", "poi"),
+        new point(map, 'City Council', 54.770293, 56.020652, siteInfo.cityCouncil, "<img src='img/gorsoviet.jpg'</img>", "poi"),
+        new point(map, 'Bashkir Drama Theater', 54.718773, 55.940926, siteInfo.bashTheater, "<img src='img/bash-drama.jpg'</img>", "poi"),
+        new point(map, 'Salavat Ulayev Park', 54.716619, 55.92667, siteInfo.salavat, "<img src='img/salavat-ulayev.jpg'</img>", "poi"),
+        new point(map, 'Tatar Drama Theater', 54.748657, 56.019359, siteInfo.tatTheater, "<img src='img/tatar-theater.jpg'</img>", "poi"),
+        new point(map, 'Victory Park', 54.81438, 56.057187, siteInfo.victory, "<img src='img/victory.jpg'</img>", "poi"),
+        new point(map, 'Congress Hall', 54.721032, 55.928579, siteInfo.congress, "<img src='img/congress.jpg'</img>", "poi"),
+        new point(map, 'White House', 54.716501, 55.940882, siteInfo.whiteHouse, "<img src='img/white-house.jpg'</img>", "poi"),
+        new point(map, 'Friendship Monument', 54.712937, 55.963894, siteInfo.friendship, "<img src='img/friendship.jpg'</img>", "poi"),
+        new point(map, 'Bashkir State University', 54.720188, 55.93605, siteInfo.bgu, "<img src='img/bgu.jpg'</img>", "poi"),
+        new point(map, 'Ballet & Opera Theater', 54.722521, 55.944974, siteInfo.ballet, "<img src='img/ballet-theater.jpg'</img>", "poi")
       ]);
+
+      self.hotels = ko.observableArray([
+        $.getJSON('https://api.foursquare.com/v2/venues/explore?client_id=FNWBF2MX5O1B5NHTVVOOUECAYBWMX01QOKJ1LL3PYFWI2BWA&client_secret=3NOEIJLZMJRFGPBNPVBJSDDY0RJKD2TQ25UHF5TUT1IAB51W&v=20130815&ll=54.771073,56.027924&query=hotels',
+          function(data) {
+            $.each(data.response.groups[0].items, function(items, items) {
+              console.log(items);
+              new point(map, items.venue.name, items.venue.location.lat, items.venue.location.lng, "This is a hotel. Click " + "<a href='" + items.tips[0].canonicalUrl + "'>here</a> to learn more about this hotel", "<img src='img/hotel.jpg'></img>", "hotel");
+            });
+          })
+        ]);
+
 
       self.query = ko.observable("");
 
