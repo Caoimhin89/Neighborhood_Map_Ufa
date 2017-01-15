@@ -10,7 +10,7 @@
     <!-- Import Materialize.css -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
     <!-- Import Custom CSS -->
-    <link rel="stylesheet" type="text/css" href="css/style.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <title>City Map of Ufa, Russia</title>
     <!-- Connect to Google Maps API -->
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete"
@@ -26,15 +26,18 @@
 
     <!-- BEGIN NAVBAR -->
     <nav>
-       <div class="nav-wrapper green">
-         <a href="#!" class="brand-logo">City of Ufa</a>
-         <a href="#" data-activates="slide-out" class="button-collapse"><img src="img/CoA.png" class="navIcon"></img></a>
-         <ul class="right hide-on-small-and-down">
-           <li><a class="waves-effect waves-light" href="#modal1">About the City</a></li>
-           <li><a href="#" data-activates="slide-out" class="button-collapse show-on-large">Points of Interest</a></li>
-         </ul>
-       </div>
-     </nav>
+      <div class="nav-wrapper green">
+        <a href="#!" class="brand-logo">City of Ufa</a>
+        <a href="#" data-activates="slide-out" class="button-collapse"><img src="img/CoA.png" class="navIcon"/></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a class="waves-effect waves-light" href="#modal1">About the City</a></li>
+          <li><a href="#" data-activates="slide-out" class="button-collapse show-on-large">Points of Interest</a></li>
+        </ul>
+        <ul class="right hide-on-large-and-up">
+         <li><a href="#modal1" class="right btn-floating btn-large btn-collapse waves-effect waves-light hide-on-med-and-up blue"><i class="material-icons">info_outline</i></a></li>
+        </ul>
+      </div>
+    </nav>
 
 <!-- BEGIN SIDENAV -->
      <ul id="slide-out" class="side-nav">
@@ -72,7 +75,6 @@
           </div>
         </div>
       </div>
-      <a href="#modal1" class="right btn-floating btn-large btn-collapse waves-effect waves-light hide-on-med-and-up blue"><i class="material-icons">info_outline</i></a>
 
     </div><!--End Container-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
