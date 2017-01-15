@@ -1,11 +1,17 @@
 //initialize the google map, center it on the city of Ufa, set zoom
+var map;
 function initAutocomplete() {
     var ufa = {lat: 54.771073, lng: 56.027924};
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
       center: ufa,
-      zoom: 11
+      zoom: 12
     });
-      
+    google.maps.event.addDomListener(window, "resize", function() {
+      var center = map.getCenter();
+      google.maps.event.trigger(map, "resize");
+      map.setCenter(center);
+    });
+
 
     var siteInfo = {
       aviationUni:"This is the Aviation University. It was founded in 1932 and is now one of the leading universities in Russia.",
@@ -95,7 +101,7 @@ function initAutocomplete() {
         } else {
           marker.setAnimation(google.maps.Animation.BOUNCE);
           setTimeout(function() {
-            marker.setAnimation(null); 
+            marker.setAnimation(null);
           }, 1520);
         }
       }
@@ -128,7 +134,13 @@ function initAutocomplete() {
           function(data) {
             $.each(data.response.groups[0].items, function(items, items) {
               console.log(items);
-              new point(map, items.venue.name, items.venue.location.lat, items.venue.location.lng, "This is a hotel. Click " + "<a href='" + items.tips[0].canonicalUrl + "'>here</a> to learn more about this hotel", "<img src='img/hotel.jpg'></img>", "hotel");
+              var hotelDescription;
+              if(items.tips != undefined) {
+                hotelDescription = "This is a hotel. Click " + "<a href='" + items.tips[0].canonicalUrl + "'>here</a> to learn more about this hotel"
+              } else {
+                hotelDescription = "This is a hotel."
+              }
+              new point(map, items.venue.name, items.venue.location.lat, items.venue.location.lng, hotelDescription, "<img src='img/hotel.jpg'></img>", "hotel");
             });
           })
         ]);
@@ -155,6 +167,6 @@ function initAutocomplete() {
       };
 
     };
-    
+
     ko.applyBindings(new viewModel());
 }
