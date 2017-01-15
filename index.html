@@ -4,65 +4,80 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"></link>
+    <!--Import Google Icon & Roboto Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <!-- Import Materialize.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <!-- Import Custom CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css"></link>
     <title>City Map of Ufa, Russia</title>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&callback=initAutocomplete"
       async defer>
     </script>
-    <script type="text/javascript" src="jQuery v1.12.1.js"></script>
     <script type="text/javascript" src="knockout_v3.4.0.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </head>
 
   <body>
-    <div class="container">
 
-    <!-- BEGIN HEADER -->
+    <!-- BEGIN NAVBAR -->
+    <nav>
+       <div class="nav-wrapper green">
+         <a href="#!" class="brand-logo">City of Ufa</a>
+         <a href="#" data-activates="slide-out" class="button-collapse"><img src="img/CoA.png" id="CoA"></img></a>
+         <ul class="right hide-on-med-and-down">
+           <li><a class="waves-effect waves-light" href="#modal1">About the City</a></li>
+           <li><a href="#" data-activates="slide-out" class="button-collapse show-on-large">Points of Interest</a></li>
+         </ul>
+       </div>
+     </nav>
 
-      <div class="row" id="header">
-        <div class="col-sm-3" id="flag">
-          <img src="img/flag.jpg"></img>
-        </div><!--End Flag-->
-        <div class="col-sm-6" id="banner">
-          <img src="img/banner.jpg"></img>
-        </div>
-        <div class="col-sm-3" id="citySeal">
-          <img src="img/cot-ufa.jpg"></img>
-        </div>
-      </div><!--End Header Row-->
+<!-- BEGIN SIDENAV -->
+     <ul id="slide-out" class="side-nav">
+       <li>
+         <div class="userView">
+           <div class="background">
+             <img src="img/flag.png">
+           </div>
+         </div>
+       </li>
+       <li><input id="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" type="text" placeholder="Filter"></li>
+       <div data-bind="foreach: {data: filterPoints, as: 'point'}">
+         <li><a class="waves-effect" href="#!" data-bind="text: name, click: $parent.openInfoWindow"></a></li>
+      </div>
+     </ul>
 
+     <div>
     <!-- BEGIN MAIN CONTENT -->
+      <div id="map-container">
+        <div id="map"></div>
 
-      <div class="row" id="main-content">
-      <input id="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" type="text" placeholder="Filter">
-        <div class="col-sm-3" id="list">
-          
-          <table border="1" id="listTable">
-            <tbody data-bind="foreach: {data: filterPoints, as: 'point'}">
-              <tr>
-                <td>
-                  <a href="#"><b data-bind="text: name, click: $parent.openInfoWindow"></b></a>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div><!--End List-->
-        <div class="col-sm-9" id="map"></div>
-      </div><!--End Main-Content Row-->
-      <div class="row" id="footer">
-        <div class="col-sm-3" id="coa">
-          <img src="img/seal-ufa.jpg"></img>
+        <!-- BEGIN CITY-INFO MODAL -->
+        <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>About Ufa</h4>
+              <p>Ufa is the capital of Russia's Bashkortostan Republic. Located in the southern Urals, it is right on the border of
+              geographical Europe and Asia. The city has a population of approximately 1.5 million, divided roughly equally between
+              ethnic Russians, Bashkirs, and Tatars with Orthodox Christianity and Sunni Islam being the two major religions. Russian and
+              Bashkir are the two official languages of the Bashkortostan Republic, although Tatar is also widely spoken, especially in the
+              northern part of the region. Bashkortostan is well-known for its agriculture, abundant minerals, booming energy sector, and its
+              many famous writers and mathematicians. Ufa recently made world headlines as the host city for the 2015 BRICS economic summit.</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Interesting</a>
+          </div>
         </div>
-        <div class="col-sm-6" id="text">
-          <p>Ufa is the capital of Russia's Bashkortostan Republic. Located in the southern Urals, it is right on the border of geographical Europe and Asia. The city has a population of approximately 1.5 million, divided roughly equally between ethnic Russians, Bashkirs, and Tatars with Orthodox Christianity and Sunni Islam being the two major religions. Russian and Bashkir are the two official languages of the Bashkortostan Republic, although Tatar is also widely spoken, especially in the northern part of the region. Bashkortostan is well-known for its agriculture, abundant minerals, booming energy sector, and its many famous writers and mathematicians. Ufa recently made world headlines as the host city for the 2015 BRICS economic summit.
-          </p>
-        </div><!--End Text-->
-        <div class="col-sm-3" id="bash-coat">
-          <img src="img/coat-bash.jpg"></img>
-        </div>
-      </div><!--End Row Footer-->
-  
+      </div>
+
     </div><!--End Container-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <script>
+      $(".button-collapse").sideNav();
+      $(document).ready(function(){
+        $('.modal').modal();
+      });
+    </script>
   </body>
 </html>
