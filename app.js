@@ -140,7 +140,7 @@ function initAutocomplete() {
               } else {
                 hotelDescription = "This is a hotel."
               }
-              new point(map, items.venue.name, items.venue.location.lat, items.venue.location.lng, hotelDescription, "<img src='img/hotel.jpg'></img>", "hotel");
+              self.points.push(new point(map, items.venue.name, items.venue.location.lat, items.venue.location.lng, hotelDescription, "<img src='img/hotel.jpg'></img>", "hotel"));
             });
           })
         ]);
