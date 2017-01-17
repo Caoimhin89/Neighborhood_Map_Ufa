@@ -162,7 +162,7 @@ function initAutocomplete() {
         
 //create toggle function so user can view either hotels only or points of interest only, with the push of a button
       self.toggleMarkerType = ko.computed(function() {
-        forEach(var i in self.displayCategories()) {
+        for(var i in self.displayCategories()) {
           var selected = i;
           return ko.utils.arrayFilter(self.points(), function(point) {
             var showType = point.markerType().indexOf(selected) >= 0;
