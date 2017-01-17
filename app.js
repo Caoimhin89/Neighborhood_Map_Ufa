@@ -168,8 +168,8 @@ function initAutocomplete() {
             var showType = point.markerType().indexOf(selected) >= 0;
             point.isVisible(showType);
             return showType;
-          }
-        });
+          });
+        }
       });
 
 //create Google Maps infowindows for each point on the map
