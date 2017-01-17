@@ -164,9 +164,11 @@ function initAutocomplete() {
       self.toggleMarkerType = ko.computed(function() {
         for(var i in self.displayCategories()) {
           var selected = i;
+          console.log("Currently selected: " + i);
           return ko.utils.arrayFilter(self.points(), function(point) {
             var showType = point.markerType().indexOf(selected) >= 0;
             point.isVisible(showType);
+            console.log("showType: " + showType);
             return showType;
           });
         }
