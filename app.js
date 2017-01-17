@@ -147,6 +147,7 @@ function initAutocomplete() {
 
 
       self.query = ko.observable("");
+      self.toggle = ko.observable("both");
 
 //create filter function so user can narrow the number of points in the list and on the map
 
@@ -156,6 +157,16 @@ function initAutocomplete() {
           var doesMatch = point.name().toLowerCase().indexOf(search) >= 0;
           point.isVisible(doesMatch);
           return doesMatch;
+        });
+      });
+        
+//create toggle function so user can view either hotels only or points of interest only, with the push of a button
+      self.toggleMarkerType = ko.computed(function() {
+        var selected = self.toggle();
+        return ko.utils.arrayFilter(self.points(), function(point) {
+          var showType = point.markerType().indexOf(selected) >= 0;
+          point.isVisible(showType);
+          return showType;
         });
       });
 
