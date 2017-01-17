@@ -148,6 +148,7 @@ function initAutocomplete() {
 
       self.query = ko.observable("");
       self.displayCategories = ko.observableArray(["hotel", "poi"]);
+      console.log(self.displayCategories);
 
 //create filter function so user can narrow the number of points in the list and on the map
 
