@@ -48,6 +48,26 @@
            </div>
          </div>
        </li>
+       <li>
+         <div class="switch">
+          <label>
+            Hide
+            <input type="checkbox" value="hotel" data-bind="value: toggle">
+            <span class="lever"></span>
+            Show Hotels
+          </label>
+        </div>
+       </li>
+       <li>
+         <div class="switch">
+          <label>
+            Hide
+            <input type="checkbox" value="poi" data-bind="value: toggle">
+            <span class="lever"></span>
+            Show Points of Interest
+          </label>
+        </div>
+       </li>
        <li><input id="search" data-bind="value: query, valueUpdate: 'keyup'" autocomplete="off" type="text" placeholder="Filter"></li>
        <div data-bind="foreach: {data: filterPoints, as: 'point'}">
          <li><a class="waves-effect" href="#!" data-bind="text: name, click: $parent.openInfoWindow"></a></li>
