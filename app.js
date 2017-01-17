@@ -147,7 +147,7 @@ function initAutocomplete() {
 
 
       self.query = ko.observable("");
-      self.toggle = ko.observable("both");
+      self.toggle = ko.observable("hotelpoi");
 
 //create filter function so user can narrow the number of points in the list and on the map
 
