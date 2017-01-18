@@ -159,10 +159,14 @@ function initAutocomplete() {
           if(doesMatch) {
             if(self.displayCategories().length > 0) {
               if(point.markerType === self.displayCategories()[0]) {
+                console.log("markerType: " + point.markerType);
+                console.log("displayCategory: " + self.displayCategories()[0]);
                 isDisplayed = true;
               }
               if(self.displayCategories().length > 1) {
                 if(point.markerType === self.displayCategories()[1]) {
+                  console.log("markerType: " + point.markerType);
+                  console.log("displayCategory: " + self.displayCategories()[1]);
                   isDisplayed = true;
                 }
               }
