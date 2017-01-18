@@ -161,7 +161,7 @@ function initAutocomplete() {
               if(point.markerType === self.displayCategories()[0]) {
                 isDisplayed = true;
               }
-              if(self.displayCategories.length > 1) {
+              if(self.displayCategories().length > 1) {
                 if(point.markerType === self.displayCategories()[1]) {
                   isDisplayed = true;
                 }
