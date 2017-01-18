@@ -148,34 +148,27 @@ function initAutocomplete() {
 
       self.query = ko.observable("");
       self.displayCategories = ko.observableArray(["hotel", "poi"]);
-      var isDisplayed = false;
+      var isSelected;
+        var doesMatch;
 
 //create filter function so user can narrow the number of points in the list and on the map
 
       self.filterPoints = ko.computed(function() {
         var search = self.query().toLowerCase();
         return ko.utils.arrayFilter(self.points(), function(point) {
-          var doesMatch = point.name().toLowerCase().indexOf(search) >= 0;
-          if(doesMatch) {
-            if(self.displayCategories().length > 0) {
-              if(point.markerType === self.displayCategories()[0]) {
-                console.log("markerType: " + point.markerType);
-                console.log("displayCategory: " + self.displayCategories()[0]);
-                isDisplayed = true;
-              }
-              if(self.displayCategories().length > 1) {
-                if(point.markerType === self.displayCategories()[1]) {
-                  console.log("markerType: " + point.markerType);
-                  console.log("displayCategory: " + self.displayCategories()[1]);
-                  isDisplayed = true;
-                }
-              }
-            } else {
-              isDisplayed = false;
+          isSelected = false;
+          doesMatch = false;
+          self.displayCategories().forEach(function(selection) {
+            if(point.markerType === selection) {
+              isSelected = true;
+            }
+          });
+          if(selected) {
+            doesMatch = point.name().toLowerCase().indexOf(search) >= 0;
             }
           }
-            point.isVisible(isDisplayed);
-            return isDisplayed;
+            point.isVisible((isSelected && doesMatch));
+            return (isSelected && doesMatch);
         });
       });
 
