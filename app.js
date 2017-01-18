@@ -166,11 +166,10 @@ function initAutocomplete() {
           if(selected) {
             doesMatch = point.name().toLowerCase().indexOf(search) >= 0;
             }
-          }
+         });
             point.isVisible((isSelected && doesMatch));
             return (isSelected && doesMatch);
-        });
-      });
+       });
 
 //create Google Maps infowindows for each point on the map
 
