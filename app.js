@@ -148,28 +148,23 @@ function initAutocomplete() {
 
       self.query = ko.observable("");
       self.displayCategories = ko.observableArray(["hotel", "poi"]);
-      var isSelected;
-        var doesMatch;
+      var doesMatch;
 
 //create filter function so user can narrow the number of points in the list and on the map
 
-      self.filterPoints = ko.computed(function() {
-        var search = self.query().toLowerCase();
-        return ko.utils.arrayFilter(self.points(), function(point) {
-          isSelected = false;
-          doesMatch = false;
-          self.displayCategories().forEach(function(selection) {
-            if(point.markerType === selection) {
-              isSelected = true;
-            }
-          });
-          if(selected) {
-            doesMatch = point.name().toLowerCase().indexOf(search) >= 0;
-            }
-            point.isVisible((isSelected && doesMatch));
-            return (isSelected && doesMatch);
-          });
+self.filterPoints = ko.computed(function() {
+     var search = self.query().toLowerCase();
+     return ko.utils.arrayFilter(self.points(), function(point) {
+       doesMatch = false;
+       self.displayCategories().forEach(function(selection) {
+         if(point.markerType() === selection) {
+           doesMatch = point.name().toLowerCase().indexOf(search) >= 0;
+         }
        });
+         point.isVisible((doesMatch));
+         return (doesMatch);
+       });
+    });
 
 //create Google Maps infowindows for each point on the map
 
