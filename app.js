@@ -164,7 +164,7 @@ function initAutocomplete() {
          });
        point.isVisible((doesMatch));
        return (doesMatch);
-       }), 500);
+       }, 500);
      });
 
 //create Google Maps infowindows for each point on the map
