@@ -154,7 +154,6 @@ function initAutocomplete() {
 
      self.filterPoints = ko.computed(function() {
        var search = self.query().toLowerCase();
-       setTimeout(function() {
        return ko.utils.arrayFilter(self.points(), function(point) {
          doesMatch = false;
          self.displayCategories().forEach(function(selection) {
@@ -162,10 +161,10 @@ function initAutocomplete() {
              doesMatch = point.name().toLowerCase().indexOf(search) >= 0;
            }
          });
-       point.isVisible((doesMatch));
-       return (doesMatch);
-       }, 500);
-     });
+         point.isVisible((doesMatch));
+         return (doesMatch);
+       });
+    });
 
 //create Google Maps infowindows for each point on the map
 
