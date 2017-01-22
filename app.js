@@ -127,7 +127,7 @@ function initAutocomplete() {
         new point(map, 'Friendship Monument', 54.712937, 55.963894, siteInfo.friendship, "<img src='img/friendship.jpg'</img>", "poi"),
         new point(map, 'Bashkir State University', 54.720188, 55.93605, siteInfo.bgu, "<img src='img/bgu.jpg'</img>", "poi"),
         new point(map, 'Ballet & Opera Theater', 54.722521, 55.944974, siteInfo.ballet, "<img src='img/ballet-theater.jpg'</img>", "poi")
-      ]);
+      ]).extend({deferred: true});
 
       self.hotels = ko.observableArray([
         $.getJSON('https://api.foursquare.com/v2/venues/explore?client_id=FNWBF2MX5O1B5NHTVVOOUECAYBWMX01QOKJ1LL3PYFWI2BWA&client_secret=3NOEIJLZMJRFGPBNPVBJSDDY0RJKD2TQ25UHF5TUT1IAB51W&v=20130815&ll=54.771073,56.027924&query=hotels',
