@@ -152,19 +152,20 @@ function initAutocomplete() {
 
 //create filter function so user can narrow the number of points in the list and on the map
 
-self.filterPoints = ko.computed(function() {
-     var search = self.query().toLowerCase();
-     return ko.utils.arrayFilter(self.points(), function(point) {
-       doesMatch = false;
-       self.displayCategories().forEach(function(selection) {
-         if(point.markerType() === selection) {
-           doesMatch = point.name().toLowerCase().indexOf(search) >= 0;
-         }
-       });
-         point.isVisible((doesMatch));
-         return (doesMatch);
-       });
-    });
+     self.filterPoints = ko.computed(function() {
+       var search = self.query().toLowerCase();
+       setTimeout(function() {
+       return ko.utils.arrayFilter(self.points(), function(point) {
+         doesMatch = false;
+         self.displayCategories().forEach(function(selection) {
+           if(point.markerType() === selection) {
+             doesMatch = point.name().toLowerCase().indexOf(search) >= 0;
+           }
+         });
+       point.isVisible((doesMatch));
+       return (doesMatch);
+       }), 500);
+     });
 
 //create Google Maps infowindows for each point on the map
 
